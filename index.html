@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big Dukaan</title>
+    <!-- web page icon -->
+    <link rel="icon" href="images/mascot.png">
+    <link rel="stylesheet" href="styles.css">
+    <!-- font awesome link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- flag icons link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <!-- google font -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Finger+Paint&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <header>
+        <nav class="top-nav-bar">
+            <ul class="top-nav-list">
+                <li class="top-nav-item-logo">
+                    <a class="top-nav-item-anchor" href="">
+                        <img src="images/big dukaan.png" alt="big dukaan">
+                    </a>
+                </li>
+                <li class="top-nav-item-search">
+                    <form class="search-container" action="">
+                        <div class="department-dropdown">
+                            <button type="button" class="department-dropdown-button" onclick="onDepartmentDropdownButtonClick()">
+                                <p style="display: inline;"> All Departments</p>
+                                <i class="fa fa-caret-down" style="font-size: 20px;"></i>
+                            </button>
+                            <div class="department-dropdown-menu">
+                                <ul class="department-dropdown-menu-list">
+                                    <li onclick="selectDepartment(0)" class="department-dropdown-menu-item active-item">
+                                        All Departments
+                                    </li>
+                                    <li onclick="selectDepartment(1)" class="department-dropdown-menu-item">
+                                        Arts & Craft
+                                    </li>
+                                    <li onclick="selectDepartment(2)" class="department-dropdown-menu-item">
+                                        Automative
+                                    </li>
+                                    <li onclick="selectDepartment(3)" class="department-dropdown-menu-item">
+                                        Baby
+                                    </li>
+                                    <li onclick="selectDepartment(4)" class="department-dropdown-menu-item">
+                                        Beauty & Personal Care
+                                    </li>
+                                    <li onclick="selectDepartment(5)" class="department-dropdown-menu-item">
+                                        Books
+                                    </li>
+                                    <li onclick="selectDepartment(6)" class="department-dropdown-menu-item">
+                                        Boys' Fashion
+                                    </li>
+                                    <li onclick="selectDepartment(7)" class="department-dropdown-menu-item">
+                                        Computer
+                                    </li>
+                                    <li onclick="selectDepartment(8)" class="department-dropdown-menu-item">
+                                        Deals
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <input class="search-bar" type="search" name="search query" id="search-bar" placeholder="Search Big Dukaan...">
+                        <div class="search-bar-overlay"></div>
+                        <button class="search-button">
+                            <i style="font-size: 20px;" class="fa fa-search"></i>
+                        </button>
+                    </form>
+                </li>
+                <li class="top-nav-item">
+                    <div class="language-dropdown">
+                        <button type="button" class="language-dropdown-button" onclick="onLanguageDropdownButtonClick()">
+                            <p style="display: inline;"><span class="fi fi-in"></span> EN</p>
+                            <i style="color: black;" class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="language-dropdown-menu">
+                            <h3 class="language-dropdown-menu-heading">Choose Language</h3>
+                            <ul class="language-dropdown-menu-list">
+                                <li class="language-dropdown-menu-item">
+                                    <input class="language-dropdown-menu-radio" type="radio" name="language" id="english" checked>
+                                    <label class="language-dropdown-menu-label" for="english">English</label>
+                                </li>
+                                <li class="language-dropdown-menu-item">
+                                    <input class="language-dropdown-menu-radio" type="radio" name="language" id="hindi">
+                                    <label class="language-dropdown-menu-label" for="hindi">हिन्दी</label>
+                                </li>
+                                <li class="language-dropdown-menu-item">
+                                    <input class="language-dropdown-menu-radio" type="radio" name="language" id="marathi">
+                                    <label class="language-dropdown-menu-label" for="marathi">मराठी</label>
+                                </li>
+                                <li class="language-dropdown-menu-item">
+                                    <input class="language-dropdown-menu-radio" type="radio" name="language" id="gujrati">
+                                    <label class="language-dropdown-menu-label" for="gujrati">ગુજરાતી</label>
+                                </li>
+                                <li class="language-dropdown-menu-item">
+                                    <input class="language-dropdown-menu-radio" type="radio" name="language" id="bangla">
+                                    <label class="language-dropdown-menu-label" for="bangla">বাংলা</label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </li>
+                <li class="top-nav-item">
+                    <a class="top-nav-item-anchor" href="">
+                            <!-- <i style="font-size: 35px;" class="fa fa-map-marker"></i>  -->
+                            <i class="bi bi-geo-alt"></i>
+                            <p style="display: inline;font-size: 15px;">India</p>
+                    </a>
+                </li>
+                <li class="top-nav-item">
+                    <div class="signin-dropdown">
+                        <button class="signin-dropdown-button" type="button" onclick="onSigninDropdownButtonClick()">
+                            Sign In
+                        </button>
+                        <div class="signin-dropdown-menu">
+                            <a href="signin.html">
+                                <button class="top-nav-signin-button" type="button">
+                                    Sign In
+                                </button>
+                            </a>
+                            <div class="new-user">
+                            New User?
+                            <a href="register.html" style="color: #F87B1B;">Register Now</a>
+                             <!-- New User? Register Now -->
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        
+        <nav class="bottom-nav-bar">
+            <ul class="bottom-nav-list">
+                <li class="bottom-nav-item" id="sidebar-button">
+                    <button class="sidebar-button" type="button" onclick="openSidebar()">
+                        <i style="font-size: 20px;" class="fa fa-bars"></i> All
+                    </button>
+                </li>
+                <li class="bottom-nav-item">
+                    <a href="">Today's Deals</a>
+                </li>
+                <li class="bottom-nav-item">
+                    <a href="">Gift Cards</a>
+                </li>
+                <li class="bottom-nav-item">
+                    <a href="">Customer Care</a>
+                </li>
+                <li class="bottom-nav-item">
+                    <a href="">Become a seller</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+
+    <nav class="product-category-nav">
+        <ul class="product-category-list">
+            <li class="product-category-item"><i class="fa fa-mobile"></i></li>
+            <li class="product-category-item"><i class="fa fa-tv"></i></li>
+            <li class="product-category-item"><i class="fa fa-laptop"></i></li>
+        </ul>
+    </nav>
+    
+    <div class="sidebar">
+        <!-- <button class="sidebar-close-button" type="button" onclick="closeSideBar()"><i class="fa fa-times"></i></button> -->
+        <a href="signin.html">
+            <button type="button" class="sidebar-signin-button">
+                <i class="fa fa-user"></i> Hello, Sign In
+            </button>
+        </a>
+        <div class="sidebar-slide">
+            <div class="main-menu">
+                <section class="menu-section">
+                    <h3 class="menu-section-heading">Shop By Department</h3>
+                    <ul class="menu-section-list">
+                        <li class="menu-section-item" onclick="onMenuItemClick(0)">
+                            Electronics <i class="fa fa-caret-right menu-section-caret"></i>
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick(1)">
+                            Automative <i class="fa fa-caret-right menu-section-caret"></i>
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick(2)">
+                            Baby <i class="fa fa-caret-right menu-section-caret"></i>
+                        </li>
+                    </ul>
+                    <hr>
+                </section>
+                <section class="menu-section">
+                    <h3 class="menu-section-heading">Help &amp; Settings</h3>
+                    <ul class="menu-section-list">
+                        <li class="menu-section-item">
+                            Your Account
+                        </li>
+                        <li class="menu-section-item">
+                            <i style="font-size: 20px;" class="fa fa-globe"></i> English
+                        </li>
+                        <li class="menu-section-item">
+                            Customer Care
+                        </li>
+                        <a style="color: black;text-decoration: none;" href="signin.html">
+                            <li class="menu-section-item">Sign In</li>
+                        </a>
+                    </ul>
+                    <hr>
+                </section>
+            </div>
+            <div class="submenu">
+                <button class="back-to-main-menu" onclick="closeSubmenu()">
+                    <i class="fa fa-arrow-left"></i>
+                    MAIN MENU
+                </button>
+                <section class="menu-section">
+                    <hr>
+                    <h3 class="menu-section-heading">Electronics</h3>
+                    <ul class="menu-section-list">
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Accesories &amp; Supplies
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Camera &amp; Photo
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Car &amp; Vehicle Electronics
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Cellphones &amp; Accesories
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Computers &amp; Accesories
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            GPS &amp; Navigation
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Headphones
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Home Audio
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Car &amp; Vehicle Electronics
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div class="submenu">
+                <button class="back-to-main-menu" onclick="closeSubmenu()">
+                    <i class="fa fa-arrow-left"></i>
+                    MAIN MENU
+                </button>
+                <section class="menu-section">
+                    <hr>
+                    <h3 class="menu-section-heading">Automative</h3>
+                    <ul class="menu-section-list">
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Car Care
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Car Electronics &amp; Accesories
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Exterior Accesories
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Interior Accesories
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Lights &amp; Lighting Accesories
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Motorcycle &amp; Powersports
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Oils &amp; Fluids
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Paint &amp; Paint Supplies
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Performance Parts &amp; Accesories
+                        </li>
+                    </ul>
+                </section>
+            </div>
+            <div class="submenu">
+                <button class="back-to-main-menu" onclick="closeSubmenu()">
+                    <i class="fa fa-arrow-left"></i>
+                    MAIN MENU
+                </button>
+                <section class="menu-section">
+                    <hr>
+                    <h3 class="menu-section-heading">Baby</h3>
+                    <ul class="menu-section-list">
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Activity &amp; Entertainment
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Apparel &amp; Accesories
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Baby &amp; Toddler Toys
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Baby Care
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Baby Stationary
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Car Seats &amp; Accesories
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Diapering
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Feeding
+                        </li>
+                        <li class="menu-section-item" onclick="onMenuItemClick('electronics')">
+                            Gifts
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+    <div class="sidebar-overlay"></div>
+
+    <div class="slide-container">
+        <div class="slide">
+            <img src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/b1317a13ec02a499.jpg?q=80" alt="image 1">
+            <img src="images/carousel/image 2.jpg" alt="image 2">
+            <img src="images/carousel/image 3.jpg" alt="image 3">
+            <img src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/74f0ad81e44e6e6f.jpg?q=80" alt="image 4">
+        </div>
+    </div>
+    <p class="slide-left" onclick="slideLeft()">‹</p>
+    <div class="slide-right" onclick="slideRight()">›</div>
+
+    <div class="item-slide-container">
+        <!-- <div class="item-slide-left" onclick="itemSlideLeft(0)">‹</div> -->
+        <!-- <div class="item-slide-right" onclick="itemSlideRight(0)">›</div> -->
+        <button class="item-slide-left" onclick="itemSlideLeft(0)" type="button">‹</button>
+        <button class="item-slide-right" onclick="itemSlideRight(0)" type="button">›</button>
+        <h2 class="item-slide-name">Top Offers</h2>
+        <div class="item-slide">
+                <a class="item-anchor" href="">
+                    <img class="item-image" src="https://rukminim2.flixcart.com/image/120/120/xif0q/dress/1/a/s/l-gl746-glamalue-original-imahag45qutfmrnt.jpeg?q=80" alt="1">
+                    <h3 class="item-name">Dresses</h3>
+                    <h4 class="item-price">Under ₹499</h4>
+                </a>
+                <a class="item-anchor" href="">
+                    <img class="item-image" src="https://rukminim2.flixcart.com/image/120/120/xif0q/shirt/g/l/x/4xl-browncheck-smallcheck-blue-martin-original-imah4kxmwfcdsxsg.jpeg?q=80" alt="2">
+                    <h3 class="item-name">T-shirts</h3>
+                    <h4 class="item-price">Under ₹249</h4>
+                </a>
+                <a class="item-anchor" href="">
+                    <img class="item-image" src="https://rukminim2.flixcart.com/image/120/120/xif0q/shopsy-sari/y/m/w/free-multicolor-sari-nilormy-unstitched-original-imah2hmgfpjggphy.jpeg?q=80" alt="3">
+                    <h3 class="item-name">Sarees</h3>
+                    <h4 class="item-price">Under ₹499</h4>
+                </a>
+                <a class="item-anchor" href="">
+                    <img class="item-image" src="https://rukminim2.flixcart.com/image/120/120/xif0q/shoe/b/e/4/8-hrx-247-06-hrx-by-hrithik-roshan-p-green-off-white-aqua-original-imahamvpchmgsypn.jpeg?q=80" alt="4">
+                    <h3 class="item-name">HRX By Hrithink Roshan</h3>
+                    <h4 class="item-price">Min. 70% Off</h4>
+                </a>
+                <a class="item-anchor" href="">
+                    <img class="item-image" src="https://rukminim2.flixcart.com/image/120/120/xif0q/necklace-chain/d/r/d/1-445869-necklace-kushal-s-fashion-jewellery-original-imahh6jhyvn2xbud.jpeg?q=80" alt="5">
+                    <h3 class="item-name">Kushals & More</h3>
+                    <h4 class="item-price">From  ₹299</h4>
+                </a>
+                <a class="item-anchor" href="">
+                    <img class="item-image" src="https://rukminim2.flixcart.com/image/120/120/xif0q/sweatshirt/w/1/g/xl-flhs001-c-flyind-outfit-original-imahfr7pgpvtka9d.jpeg?q=80" alt="6">
+                    <h3 class="item-name">Jackets & Sweatshirts</h3>
+                    <h4 class="item-price">Under ₹799</h4>
+                </a>
+                <a class="item-anchor" href="">
+                    <img class="item-image" src="https://rukminim2.flixcart.com/image/120/120/xif0q/charm/l/r/d/-original-imahfsrgwhgxjw8z.jpeg?q=80" alt="7">
+                    <h3 class="item-name">Fine Jewellery</h3>
+                    <h4 class="item-price">Under 60% Off</h4>
+                </a>
+                <a class="item-anchor" href="">
+                    <img class="item-image" src="https://rukminim2.flixcart.com/image/120/120/xif0q/kids-apparel-combo/q/l/8/0-3-months-slwhitelion-ys-piku-store-original-imahfbshpygckufv.jpeg?q=80" alt="8">
+                    <h3 class="item-name">Kids' Wear</h3>
+                    <h4 class="item-price">Under ₹299</h4>
+                </a>
+        </div>
+    </div>
+
+    <div class="discovery-box-container">
+        <div class="discovery-box">
+            <h3 class="discovery-box-name">Winter Wear Essentials</h2>
+            <div class="discovery-item-row">
+                <a href="" class="discovery-item">
+                    <h3 class="discovery-item-name">Mens' & Women's Socks</h3>
+                    <img class="discovery-item-image" src="https://rukminim2.flixcart.com/image/210/210/xif0q/sock/u/n/6/free-12-ivolga-0012-ivolga-original-imahgu8wkaxrtncp.jpeg?q=80" alt="1">
+                </a>
+                <a href="" class="discovery-item">
+                    <h3 class="discovery-item-name">Mens' Sweatshirts</h3>
+                    <img class="discovery-item-image" src="https://rukminim2.flixcart.com/image/210/210/xif0q/sweatshirt/g/c/j/xl-happiness-hood-cream-kawachine-original-imahgfgy3kzdyvz4.jpeg?q=80" alt="2">
+                </a>
+            </div>
+            <div class="discovery-item-row">
+                <a href="" class="discovery-item">
+                    <h3 class="discovery-item-name">Mens' Jacket</h3>
+                    <img class="discovery-item-image" src="https://rukminim2.flixcart.com/image/210/210/xif0q/jacket/9/3/p/xl-1-no-mt2-jkt-arrow-print-ice-blue-white-motrex-original-imahgnjm9qmkzfwz.jpeg?q=80" alt="3">
+                </a>
+                <a href="" class="discovery-item">
+                    <h3 class="discovery-item-name">Mens' Tracksuits</h3>
+                    <img class="discovery-item-image" src="https://rukminim2.flixcart.com/image/210/210/xif0q/track-suit/x/8/m/m-ts3-nb-nicky-boy-original-imahhfvhffddrqxf.jpeg?q=80" alt="4">
+                </a>
+            </div>
+            <a href="" style="text-decoration: none;">Discover more...</a>
+        </div>
+        <div class="discovery-box">
+            <h3 class="discovery-box-name">Home Decor & Furnishing</h2>
+            <div class="discovery-item-row">
+                <a href="" class="discovery-item">
+                    <h3 class="discovery-item-name">Blankets</h3>
+                    <img class="discovery-item-image" src="https://rukminim2.flixcart.com/image/210/210/xif0q/blanket/s/o/e/-original-imahfjhzhpgrb7zt.jpeg?q=80" alt="1">
+                </a>
+                <a href="" class="discovery-item">
+                    <h3 class="discovery-item-name">Mosquito Nets</h3>
+                    <img class="discovery-item-image" src="https://rukminim2.flixcart.com/image/210/210/xif0q/mosquito-net/g/y/i/double-bed-flower-design-light-blue-color-double-bed-6-x7-ft-72-original-imahcf3apysmuzya.jpeg?q=80" alt="2">
+                </a>
+            </div>
+            <div class="discovery-item-row">
+                <a href="" class="discovery-item">
+                    <h3 class="discovery-item-name">Wall Clocks</h3>
+                    <img class="discovery-item-image" src="https://rukminim2.flixcart.com/image/210/210/xif0q/shopsy-wall-clock/g/8/y/cherry-art-amori-small-cherry-amori-1601-analog-maxwell-original-imagjvtdsjfaspzk.jpeg?q=80" alt="3">
+                </a>
+                <a href="" class="discovery-item">
+                    <h3 class="discovery-item-name">Wallpapers</h3>
+                    <img class="discovery-item-image" src="https://rukminim2.flixcart.com/image/210/210/ktx9si80/wallpaper/p/k/w/40-35-1-modern-art-wall-sticker-1090-god-god-s-original-imag75uhsgvev755.jpeg?q=80" alt="4">
+                </a>
+            </div>
+            <a href="" style="text-decoration: none;">Discover more...</a>
+        </div>
+        <div class="discovery-box">
+            <h3 class="discovery-box-name">Fashion's Top Deals</h2>
+            <div class="discovery-item-row">
+                <a href="" class="discovery-item">
+                    <h3 class="discovery-item-name">Men's Sports Shoes</h3>
+                    <img class="discovery-item-image" src="https://rukminim2.flixcart.com/image/210/210/xif0q/shoe/v/s/t/10-sh2wrb2-10-0-foot-trends-black-original-imahdnpg8frfmqbw.jpeg?q=80" alt="1">
+                </a>
+                <a href="" class="discovery-item">
+                    <h3 class="discovery-item-name">Wrist Watches</h3>
+                    <img class="discovery-item-image" src="https://rukminim2.flixcart.com/image/210/210/xif0q/watch/r/p/v/1-2212-rls-boys-girls-original-imahhe6s7hrbhhx9.jpeg?q=80" alt="2">
+                </a>
+            </div>
+            <div class="discovery-item-row">
+                <a href="" class="discovery-item">
+                    <h3 class="discovery-item-name">Men's Slippers</h3>
+                    <img class="discovery-item-image" src="https://rukminim2.flixcart.com/image/210/210/xif0q/slipper-flip-flop/n/q/h/6-213-blue-06-arotek-blue-original-imah7fyzexvmjg7g.jpeg?q=80" alt="3">
+                </a>
+                <a href="" class="discovery-item">
+                    <h3 class="discovery-item-name">Women's dresses</h3>
+                    <img class="discovery-item-image" src="https://rukminim2.flixcart.com/image/210/210/xif0q/dress/x/7/c/s-12077-sheetal-accociates-original-imahdwjqyywcgb7r.jpeg?q=80" alt="4">
+                </a>
+            </div>
+            <a href="" style="text-decoration: none;">Discover more...</a>
+        </div>
+    </div>
+
+    <footer>
+        <ul class="footer-list">
+            <h3 class="footer-list-heading">About</h3>
+            <a href="contact us.html">
+                <li class="footer-item">Contact Us</li>
+            </a>
+            <a href="about us.html">
+                <li class="footer-item">About Us</li>
+            </a>
+        </ul>
+        <ul class="footer-list">
+            <h3 class="footer-list-heading">Help</h3>
+            <a href="payments.html">
+                <li class="footer-item">Payments</li>
+            </a>
+            <a href="shipping.html">
+                <li class="footer-item">Shipping</li>
+            </a>
+            <a href="cancelation and returns.html">
+                <li class="footer-item">Cancelation &amp; Returns</li>
+            </a>
+            <a href="FAQ.html">
+                <li class="footer-item">FAQ</li>
+            </a>
+        </ul>
+        <ul class="footer-list">
+            <h3 class="footer-list-heading">Consumer Policies</h3>
+            <a href="terms of use.html">
+                <li class="footer-item">Terms Of Use</li>
+            </a>
+            <a href="privacy.html">
+                <li class="footer-item">Privacy</li>
+            </a>
+            <a href="security.html">
+                <li class="footer-item">Security</li>
+            </a>
+        </ul>
+        <div class="footer-mail-us">
+            <h3>Mail Us</h3>
+            <p>
+                Big Dukaan Private Limited,
+                <br>
+                Gokhale Road, Model Colony,
+                <br>
+                Shivaji Nagar, Pune,
+                <br>
+                Maharashtra - 411016
+            </p>
+        </div>
+        <div class="footer-social-media">
+            <h3>Social Media</h3>
+            <div class="footer-social-media-options">
+                <a target="_blank" href="https://www.facebook.com/sicsr.ac.in/">
+                    <i style="color: blue;" class="fa fa-facebook-official"></i>
+                </a>
+                <a target="_blank" href="https://www.instagram.com/sicsrpune_official/?hl=en">
+                    <i style="color: orangered;" class="fa fa-instagram"></i>
+                </a>
+                <a target="_blank" href="https://www.youtube.com/channel/UCBjWs4DTvwludolaNpEvsVA">
+                    <i style="color: red;" class="fa fa-youtube-play"></i>
+                </a>
+                <a target="_blank" href="https://www.linkedin.com/school/sicsr/posts/?feedView=all">
+                    <i style="color: blue;" class="fa fa-linkedin-square"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+</body>
+</html>
