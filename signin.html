@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="en">    
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign up — Flipkart style (HTML + CSS)</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --blue:#2874f0; /* Flipkart blue */
+      --yellow:#ffcc00;
+      --muted:#f1f3f6;
+      --card:#ffffff;
+      --text:#212121;
+      --radius:10px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+      background: linear-gradient(180deg, #f7f9fc 0%, #eef3fb 100%);
+      color:var(--text);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:32px;
+    }
+
+    .container{
+      width:980px;
+      max-width:100%;
+      background:var(--card);
+      border-radius:14px;
+      box-shadow:0 10px 30px rgba(16,24,40,0.08);
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:1fr 420px;
+    }
+
+    /* Left marketing column */
+    .promo{
+      padding:48px 48px;
+      background:linear-gradient(180deg, rgba(40,116,240,0.03), rgba(255,204,0,0.02));
+      display:flex;
+      flex-direction:column;
+      gap:18px;
+      align-items:flex-start;
+      justify-content:center;
+    }
+    .logo{
+      display:flex;align-items:center;gap:12px;margin-bottom:12px;
+    }
+    .logo .mark{
+      width:44px;height:44px;border-radius:8px;background:var(--blue);display:flex;align-items:center;justify-content:center;color:white;font-weight:700;letter-spacing:1px;font-size:18px;box-shadow:0 6px 18px rgba(40,116,240,0.18)
+    }
+    .headline{
+      font-size:28px;font-weight:700;line-height:1.05;color:var(--text)
+    }
+    .sub{
+      color:#4b5563;max-width:46ch;font-size:15px
+    }
+    .mock-phone{
+      margin-top:8px;width:220px;height:420px;background:linear-gradient(180deg,#fff,#f6fbff);border-radius:14px;padding:18px;display:flex;flex-direction:column;gap:10px;align-items:center;justify-content:center;border:1px solid rgba(16,24,40,0.04)
+    }
+    .mock-phone .big{font-weight:700;font-size:24px;color:var(--blue)}
+    .features{display:flex;gap:12px;margin-top:14px}
+    .pill{background:var(--muted);padding:8px 12px;border-radius:999px;font-weight:600;font-size:13px}
+
+    /* Right form column */
+    .form-wrap{
+      padding:36px 36px;background:linear-gradient(180deg, #ffffff, #fbfdff);
+      display:flex;flex-direction:column;gap:10px;align-items:stretch;justify-content:center;
+    }
+    .form-head{display:flex;align-items:center;gap:12px;margin-bottom:8px}
+    .form-head h2{margin:0;font-size:20px}
+    .form-desc{color:#6b7280;font-size:13px;margin-bottom:18px}
+
+    form{display:flex;flex-direction:column;gap:12px}
+    label{font-size:13px;color:#374151}
+    .input{
+      display:flex;flex-direction:column;gap:6px
+    }
+    input[type="text"],input[type="email"],input[type="password"],input[type="tel"]{
+      width:100%;padding:12px 14px;border-radius:8px;border:1px solid rgba(16,24,40,0.08);font-size:14px;background:#fff;outline:none;transition:box-shadow .12s,border-color .12s
+    }
+    input:focus{box-shadow:0 6px 18px rgba(40,116,240,0.08);border-color:var(--blue)}
+
+    .row{display:flex;gap:10px}
+    .half{flex:1}
+
+    .primary-btn{
+      background:var(--blue);color:white;padding:12px 14px;border-radius:8px;border:none;font-weight:700;cursor:pointer;font-size:15px;margin-top:6px;
+      box-shadow:0 8px 20px rgba(40,116,240,0.12);
+    }
+    .secondary{background:transparent;border:1px solid rgba(16,24,40,0.06);padding:10px;border-radius:8px;cursor:pointer}
+
+    .divider{display:flex;align-items:center;gap:10px;margin:10px 0}
+    .divider span{flex:1;height:1px;background:rgba(16,24,40,0.04)}
+    .small{font-size:13px;color:#6b7280;text-align:center}
+
+    .legal{font-size:12px;color:#6b7280;line-height:1.4}
+    .legal a{color:var(--blue);text-decoration:none;font-weight:600}
+
+    .alt-login{display:flex;gap:8px;justify-content:center}
+    .social{flex:1;padding:10px;border-radius:8px;border:1px solid rgba(16,24,40,0.06);text-align:center;font-weight:600}
+
+    footer{margin-top:8px;text-align:center;color:#9ca3af;font-size:12px}
+
+    /* Responsive */
+    @media (max-width:900px){
+      .container{grid-template-columns:1fr;padding:0;margin:0}
+      .promo{display:none}
+      .form-wrap{padding:28px}
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="promo">
+      <div class="logo">
+        <div class="mark">F</div>
+        <div>
+          <div style="font-weight:600;">Flipkart-like</div>
+          <div style="font-size:12px;color:#6b7280">Welcome to the shop</div>
+        </div>
+      </div>
+      <div class="headline">Sign up to explore deals, offers and more</div>
+      <div class="sub">Create an account to start saving with fast checkout, personalized recommendations, and easy returns.</div>
+
+      <div class="mock-phone" aria-hidden="true">
+        <div class="big">₹0 Delivery on select orders</div>
+        <div style="max-width:18rem;text-align:center;color:#374151">Exclusive app-only offers, lightning deals and instant refunds — all in one place.</div>
+      </div>
+
+      <div class="features">
+        <div class="pill">Secure</div>
+        <div class="pill">Fast checkout</div>
+        <div class="pill">Easy returns</div>
+      </div>
+    </div>
+
+    <div class="form-wrap">
+      <div>
+        <div class="form-head">
+          <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24'><rect width='24' height='24' rx='6' fill='%232872f0'/><text x='50%' y='58%' font-size='14' text-anchor='middle' fill='white' font-family='Inter'>F</text></svg>" alt="logo" style="width:36px;height:36px;border-radius:8px"/>
+          <h2>Create your account</h2>
+        </div>
+        <div class="form-desc">It takes less than a minute to create your account.</div>
+      </div>
+
+      <form autocomplete="off">
+        <div class="row">
+          <div class="input half">
+            <label for="fname">First name</label>
+            <input id="fname" name="fname" type="text" placeholder="John" required />
+          </div>
+          <div class="input half">
+            <label for="lname">Last name</label>
+            <input id="lname" name="lname" type="text" placeholder="Doe" />
+          </div>
+        </div>
+
+        <div class="input">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" placeholder="john@example.com" required />
+        </div>
+
+        <div class="row">
+          <div class="input half">
+            <label for="phone">Mobile number</label>
+            <input id="phone" name="phone" type="tel" placeholder="+91 98765 43210" />
+          </div>
+          <div class="input half">
+            <label for="gender">Gender (optional)</label>
+            <input id="gender" name="gender" type="text" placeholder="Male / Female / Other" />
+          </div>
+        </div>
+
+        <div class="input">
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" placeholder="Create password" required />
+        </div>
+
+        <button type="submit" class="primary-btn">Sign up</button>
+
+        <div class="divider"><span></span><div class="small">or continue with</div><span></span></div>
+
+        <div class="alt-login">
+          <div class="social">Continue with Google</div>
+          <div class="social">Continue with Facebook</div>
+        </div>
+
+        <div class="legal">By continuing, you agree to Flipkart-like <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</div>
+      </form>
+
+      <footer>Already have an account? <a href="#" style="color:var(--blue);font-weight:600">Log in</a></footer>
+    </div>
+  </div>
+</body>
+</html>
