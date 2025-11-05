@@ -128,9 +128,14 @@ body{
     color: black;
 }
 .item-image{
-    /* width: 100%; */
     height: 70%;
     aspect-ratio: 1;
+    margin-bottom: 5%;
+}
+.item-image:hover{
+    height: 75%;
+    aspect-ratio: 1;
+    margin-bottom: 0%;
 }
 .item-name{
     width: 100%;

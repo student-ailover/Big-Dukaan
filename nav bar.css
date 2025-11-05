@@ -104,7 +104,7 @@ header{
 .search-bar-dropdown{
     display: none;
     width: 100%;
-    height: 300px;
+    max-height: 300px;
     background-color: white;
     list-style: none;
     overflow-y: auto;
@@ -146,6 +146,19 @@ header{
     color: black;
 }
 .language-dropdown-option:hover{
+    cursor: pointer;
+}
+.country-dropdown{
+    border: none;
+    background: none;
+    color: #F5AD18;
+    font-size: 20px;
+    width: 80px;
+}
+.country-dropdown-option{
+    color: black;
+}
+.country-dropdown-option:hover{
     cursor: pointer;
 }
 .signin-dropdown-button{
