@@ -1,5 +1,7 @@
 *{
-    font-family: "Roboto", sans-serif;
+    /* font-family: "Roboto", sans-serif; */
+    font-family:Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+
     margin: auto;
 }
 body{
@@ -8,7 +10,8 @@ body{
 }
 
 .slide-container{
-    margin: 20px auto;
+    /* margin: 20px auto; */
+    margin-top: 82px;
     width: 90%;
     height: 70%;
     overflow: hidden;
@@ -54,24 +57,24 @@ body{
     width: 25%;
     height: 100%;
 }
-.slide-left{
-    border-top-right-radius: 10px;
-    border-bottom-right-radius: 10px;
-    margin-left: 2.6%;
-}
-.slide-right{
-    margin-left: 94%;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-}
 .slide-left, .slide-right{
-    margin-top: -200px;
+    margin-top: 180px;
     user-select: none;
     padding-left: 10px;
     padding-right: 10px;
     position: absolute;
     background-color: white;
     font-size: 80px;
+    z-index: 998;
+}
+.slide-left{
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+.slide-right{
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-left: 87%;
 }
 .slide-left:hover, .slide-right:hover{
     cursor: pointer;
@@ -125,8 +128,9 @@ body{
     color: black;
 }
 .item-image{
-    width: 100%;
+    /* width: 100%; */
     height: 70%;
+    aspect-ratio: 1;
 }
 .item-name{
     width: 100%;
@@ -208,7 +212,6 @@ body{
 }
 .discovery-item-image:hover{
     margin-top: 0%;
-    width: 95%;
 }
 
 footer{
@@ -250,4 +253,48 @@ footer{
 }
 .footer-social-media-options i{
     font-size: 30px;
+}
+
+.cart{
+    z-index: 999;
+    position: fixed;
+    display: flex;
+    align-items: center;
+    width: 300px;
+    border: 1px solid black;
+    height: 50px;
+    bottom: 100px;
+    left: 40%;
+    border-radius: 10px;
+    text-align: right;
+    background-color: green;
+    animation: cart-hover 2s linear infinite;
+}
+.cart:hover{
+    cursor: pointer;
+}
+@keyframes cart-hover {
+    0%{
+        transform: translateY(0%);
+    }
+    25%{
+        transform: translateY(10%);
+    }
+    50%{
+        transform: translateY(0%);
+    }
+    75%{
+        transform: translateY(-10%);
+    }
+    100%{
+        transform: translateY(0%);
+    }
+}
+.cart i{
+    font-size: 40px;
+}
+.cart-text{
+    font-weight: bold;
+    color: white;
+    font-size: 20px;
 }
