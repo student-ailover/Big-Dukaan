@@ -1,14 +1,148 @@
-departmentDropdownMenu = document.getElementsByClassName('department-dropdown-menu')[0]
-departmentDropdownButton = document.getElementsByClassName('department-dropdown-button')[0]
-departmentDropdownMenuList = document.getElementsByClassName('department-dropdown-menu-list')[0]
-languageDropdownMenu = document.getElementsByClassName('language-dropdown-menu')[0]
-languageRadioButtons = document.getElementsByClassName('language-dropdown-menu-radio')
+const productNames = [
+  "smartphones",
+  "laptops",
+  "tablets",
+  "headphones",
+  "earbuds",
+  "smartwatches",
+  "televisions",
+  "gaming consoles",
+  "video games",
+  "digital cameras",
+  "drones",
+  "printers",
+  "monitors",
+  "keyboards",
+  "computer mice",
+  "bluetooth speakers",
+  "power banks",
+  "phone cases",
+  "chargers",
+  "webcams",
+  "t-shirts",
+  "t-shirts for men",
+  "t-shirts for women",
+  "jeans",
+  "jeans for men",
+  "jeans for women",
+  "dresses",
+  "skirts",
+  "jackets",
+  "jackets for men",
+  "jackets for women",
+  "hoodies",
+  "sweaters",
+  "shorts",
+  "trousers",
+  "suits",
+  "sneakers",
+  "running shoes",
+  "boots",
+  "sandals",
+  "shoes for men",
+  "shoes for women",
+  "shoes for kids",
+  "watches",
+  "watches for men",
+  "watches for women",
+  "jewelry",
+  "necklaces",
+  "rings",
+  "earrings",
+  "bracelets",
+  "sunglasses",
+  "backpacks",
+  "handbags",
+  "wallets",
+  "belts",
+  "hats",
+  "caps",
+  "socks",
+  "underwear",
+  "air fryers",
+  "blenders",
+  "coffee makers",
+  "microwave ovens",
+  "toasters",
+  "refrigerators",
+  "washing machines",
+  "vacuum cleaners",
+  "robot vacuums",
+  "cookware",
+  "pots and pans",
+  "knife sets",
+  "cutlery",
+  "blenders",
+  "bed sheets",
+  "pillows",
+  "blankets",
+  "towels",
+  "curtains",
+  "rugs",
+  "lamps",
+  "desks",
+  "office chairs",
+  "sofas",
+  "bookshelves",
+  "storage containers",
+  "clocks",
+  "mirrors",
+  "picture frames",
+  "candles",
+  "skincare",
+  "moisturizer",
+  "face wash",
+  "sunscreen",
+  "makeup",
+  "lipstick",
+  "foundation",
+  "shampoo",
+  "conditioner",
+  "hair dryers",
+  "perfume",
+  "cologne",
+  "vitamins",
+  "protein powder",
+  "yoga mats",
+  "dumbbells",
+  "resistance bands",
+  "treadmills",
+  "bicycles",
+  "helmets",
+  "tents",
+  "sleeping bags",
+  "hiking boots",
+  "basketballs",
+  "soccer balls",
+  "toys",
+  "action figures",
+  "dolls",
+  "board games",
+  "puzzles",
+  "lego",
+  "baby diapers",
+  "strollers",
+  "car seats",
+  "books",
+  "fiction books",
+  "non-fiction books",
+  "cookbooks",
+  "dog food",
+  "cat food",
+  "cat litter",
+  "dog toys",
+  "pet beds",
+  "tool kits",
+  "power drills",
+  "gardening tools",
+  "car chargers",
+  "car covers"
+]
+
 sidebar = document.getElementsByClassName('sidebar')[0]
 start()
 function start()
 {
-    departmentDropdownMenu.style.display = 'none'
-    languageDropdownMenu.style.display = 'none'
     document.addEventListener('mouseup', (event) => {
         // if clicked element is outside the sidebar, then close the sidebar if it 
         // is open
@@ -17,22 +151,25 @@ function start()
         {
             closeSideBar()
         }
-        // if clicked element is outside department dropdown menu, and language dropdown
-        // menu, and side bar, then close any opened menu
-        if(
-            !departmentDropdownMenu.contains(event.target) &&
-            !languageDropdownMenu.contains(event.target)
-        ) closeAllMenus()
-        // if mouse click is inside language dropdown
-        else if(languageDropdownMenu.contains(event.target))
-        {
-            for(var i = 0; i < languageRadioButtons.length; i++)
-            {
-                if(languageRadioButtons[i].checked)
-                    console.log(languageRadioButtons[i].id)
-            }
-        }
     })
+
+    const searchBar = document.getElementById('search-bar')
+    searchBar.addEventListener('input', function() {
+        // remove all previous recommendations
+        dropdown = document.getElementsByClassName('search-bar-dropdown')[0]
+        dropdown.innerHTML = ''
+        for(var i = 0; i < productNames.length; i++)
+        {
+            index = productNames[i].indexOf(this.value)
+            if(index == -1){continue}
+            recommendation = document.createElement('li')
+            recommendation.className = 'search-bar-recommendation'
+            recommendation.onclick = `onRecomendationClick(${productNames[i]})`
+            recommendation.innerHTML = `${productNames[i].slice(0, index)}<b>${productNames[i].slice(index, index + this.value.length)}</b>${productNames[i].slice(this.value.length + index)}`
+            dropdown.appendChild(recommendation)
+        }
+    });
+
     document.addEventListener('keyup',
         (event) =>{
             switch(event.key){
@@ -43,55 +180,25 @@ function start()
             }
         }
     )
-    // radio buttons for langauge dropdown
 }
-function onDepartmentDropdownButtonClick()
+function onRecomendationClick(text)
 {
-    if (departmentDropdownMenu.style.display == 'none')
-        departmentDropdownMenu.style.display = 'block'
-    else
-        departmentDropdownMenu.style.display = 'none'
+
+    console.log('click')
+    const searchBar = document.getElementById('search-bar')
+    searchBar.value = text
+
 }
-function selectDepartment(departmentIndex)
+var searchQuery
+function onSearchButtonClick()
 {
-    // remove the current active item
-    for(var i = 0; i < departmentDropdownMenuList.children.length; i++)
-        {
-        if(departmentDropdownMenuList.children[i].className.includes('active-item')){
-            if (i == departmentIndex) return
-            // departmentDropdownMenuList.children[i].className = departmentDropdownMenu.children[i].className.replace(' active-item', '')
-            departmentDropdownMenuList.children[i].className = 'department-dropdown-menu-item'
-            break
-        }
-    }
+    // if search bar is empty then ignore
+    searchBar = document.getElementsByClassName('search-bar')[0]
+    if(searchBar.value.length == 0) return
 
-    // make new item active
-    newActiveItem = departmentDropdownMenuList.children[departmentIndex]
-    newActiveItem.className = 'department-dropdown-menu-item active-item'
-    departmentDropdownButton.children[0].innerHTML = newActiveItem.innerHTML
-
-    // close the menu
-    departmentDropdownMenu.style.display = 'none'
-
-    // set keyboard focus to the search bar and change its placeholder text
-    // according to the department selected
-    searchbar = document.getElementsByClassName('search-bar')[0]
-    searchbar.focus()
-    console.log(newActiveItem.innerHTML.toString().replace('/\r/g', 'a'))
-    // searchbar.placeholder = `Search For ${newActiveItem.innerHTML.replace('/\t/g', '')}`
-    
-}
-function onLanguageDropdownButtonClick()
-{
-    console.log(languageDropdownMenu.style.display)
-    if(languageDropdownMenu.style.display == 'none')
-    {
-        languageDropdownMenu.style.display = 'block'
-    }
-    else
-    {
-        languageDropdownMenu.style.display = 'none'
-    }
+    searchQuery = searchBar.value
+    heading = document.getElementsByClassName('results-heading')[0]
+    heading.innerHTML = `Showing results for <i>${searchQuery}</i>`
 }
 function onMenuItemClick(submenuIndex)
 {
@@ -261,7 +368,7 @@ function itemSlideLeft(slideIndex)
 
     slide = document.getElementsByClassName('item-slide')[slideIndex]
 
-    console.log(slide.style.left)
+    console.log('here')
     return
     // update slide position
     // if(slide.style.left.length == 0)

@@ -7,7 +7,7 @@
     <!-- web page icon -->
     <link rel="icon" href="images/mascot.png">
     <!-- web page stylesheets -->
-    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="nav bar.css">
     <link rel="stylesheet" href="styles.css">
     <!-- font awesome link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -24,13 +24,13 @@
         <nav class="top-nav-bar">
             <ul class="top-nav-list">
                 <li class="top-nav-item-logo">
-                    <a class="top-nav-item-anchor" href="">
+                    <a class="top-nav-item-anchor" href="index.html">
                         <img src="images/big dukaan.png" alt="big dukaan">
                     </a>
                 </li>
                 <li class="top-nav-item-search">
                     <form class="search-container" action="">
-                        <!-- dropdown -->
+                        <!-- dropdown for selecting department -->
                         <select class="department-dropdown" name="" id="">
                             <option class="department-dropdown-option" value="All">All Departments</option>
                             <option class="department-dropdown-option" value="arts-and-craft">Arts &amp; Crafts</option>
@@ -39,10 +39,14 @@
                             <option class="department-dropdown-option" value="">Beauty &amp; Personal Care</option>
                         </select>
                         <!-- search bar -->
-                        <input class="search-bar" type="search" name="search query" id="search-bar" placeholder="Search Big Dukaan...">
-                        <div class="search-bar-overlay"></div>
+                        <div class="search-bar-container">
+                            <div class="search-bar-overlay"></div>
+                            <input class="search-bar" type="search" name="search query" id="search-bar" placeholder="Search Big Dukaan...">
+                            <ul class="search-bar-dropdown">
+                            </ul>
+                        </div>
                         <!-- search button -->
-                        <button class="search-button">
+                        <button class="search-button" type="button" onclick="onSearchButtonClick()">
                             <i style="font-size: 20px;" class="fa fa-search"></i>
                         </button>
                     </form>
@@ -55,65 +59,9 @@
                         <option class="language-dropdown-option" value="bangla">বাংলা</option>
                         <option class="language-dropdown-option" value="gujrati">ગુજરાતી</option>
                     </select>
-                    <!-- <div class="language-dropdown">
-                        <button type="button" class="language-dropdown-button" onclick="onLanguageDropdownButtonClick()">
-                            <p style="display: inline;">
-                                <p class="selected-language-name">English</p>
-                            </p>
-                            <i style="color: black;" class="fa fa-caret-down"></i>
-                        </button>
-                        <div class="language-dropdown-menu">
-                            <h3 class="language-dropdown-menu-heading">Choose Language</h3>
-                            <ul class="language-dropdown-menu-list">
-                                <li class="language-dropdown-menu-item">
-                                    <input class="language-dropdown-menu-radio" type="radio" name="language" id="English" checked>
-                                    <label class="language-dropdown-menu-label" for="English">
-                                        English
-                                        <span class="fi fi-"></span>
-                                    </label>
-                                </li>
-                                <li class="language-dropdown-menu-item">
-                                    <input class="language-dropdown-menu-radio" type="radio" name="language" id="chinese" value="中文">
-                                    <label class="language-dropdown-menu-label" for="chinese">
-                                        中文
-                                        <span class="fi fi-"></span>
-                                    </label>
-                                </li>
-                                <li class="language-dropdown-menu-item">
-                                    <input class="language-dropdown-menu-radio" type="radio" name="language" id="japanese" value="日本語">
-                                    <label class="language-dropdown-menu-label" for="japanese">
-                                        日本語
-                                        <span class="fi fi-"></span>
-                                    </label>
-                                </li>
-                                <li class="language-dropdown-menu-item">
-                                    <input class="language-dropdown-menu-radio" type="radio" name="language" id="german" value="Deutsch">
-                                    <label class="language-dropdown-menu-label" for="german">
-                                        Deutsch
-                                        <span class="fi fi-"></span>
-                                    </label>
-                                </li>
-                                <li class="language-dropdown-menu-item">
-                                    <input class="language-dropdown-menu-radio" type="radio" name="language" id="french" value="langue française">
-                                    <label class="language-dropdown-menu-label" for="french">
-                                        langue française
-                                        <span class="fi fi-"></span>
-                                    </label>
-                                </li>
-                                <li class="language-dropdown-menu-item">
-                                    <input class="language-dropdown-menu-radio" type="radio" name="language" id="arabic" value="اللغة العربية">
-                                    <label class="language-dropdown-menu-label" for="arabic">
-                                        اللغة العربية
-                                        <span class="fi fi-"></span>
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div> -->
                 </li>
                 <li class="top-nav-item">
                     <a class="top-nav-item-anchor" href="">
-                            <!-- <i style="font-size: 35px;" class="fa fa-map-marker"></i>  -->
                             <i class="bi bi-geo-alt"></i>
                             <p style="display: inline;font-size: 15px;">India</p>
                     </a>
@@ -124,15 +72,14 @@
                             Sign In
                         </button>
                         <div class="signin-dropdown-menu">
-                            <a href="signin.html">
+                            <a href="sign in.html">
                                 <button class="top-nav-signin-button" type="button">
                                     Sign In
                                 </button>
                             </a>
                             <div class="new-user">
                             New User?
-                            <a href="register.html" style="color: #F87B1B;">Register Now</a>
-                             <!-- New User? Register Now -->
+                            <a href="sign up.html" style="color: #F87B1B;">Register Now</a>
                             </div>
                         </div>
                     </div>
@@ -163,17 +110,9 @@
         </nav>
     </header>
 
-    <nav class="product-category-nav">
-        <ul class="product-category-list">
-            <li class="product-category-item"><i class="fa fa-mobile"></i></li>
-            <li class="product-category-item"><i class="fa fa-tv"></i></li>
-            <li class="product-category-item"><i class="fa fa-laptop"></i></li>
-        </ul>
-    </nav>
-    
     <div class="sidebar">
         <!-- <button class="sidebar-close-button" type="button" onclick="closeSideBar()"><i class="fa fa-times"></i></button> -->
-        <a href="signin.html">
+        <a href="sign in.html">
             <button type="button" class="sidebar-signin-button">
                 <i class="fa fa-user"></i> Hello, Sign In
             </button>
@@ -207,7 +146,7 @@
                         <li class="menu-section-item">
                             Customer Care
                         </li>
-                        <a style="color: black;text-decoration: none;" href="signin.html">
+                        <a style="color: black;text-decoration: none;" href="sign in.html">
                             <li class="menu-section-item">Sign In</li>
                         </a>
                     </ul>
@@ -336,6 +275,8 @@
     <div class="sidebar-overlay"></div>
 
     <div class="slide-container">
+        <p class="slide-left" onclick="slideLeft()">‹</p>
+        <div class="slide-right" onclick="slideRight()">›</div>
         <div class="slide">
             <img src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/b1317a13ec02a499.jpg?q=80" alt="image 1">
             <img src="images/carousel/image 2.jpg" alt="image 2">
@@ -343,12 +284,8 @@
             <img src="https://rukminim2.flixcart.com/fk-p-flap/1620/270/image/74f0ad81e44e6e6f.jpg?q=80" alt="image 4">
         </div>
     </div>
-    <p class="slide-left" onclick="slideLeft()">‹</p>
-    <div class="slide-right" onclick="slideRight()">›</div>
 
     <div class="item-slide-container">
-        <!-- <div class="item-slide-left" onclick="itemSlideLeft(0)">‹</div> -->
-        <!-- <div class="item-slide-right" onclick="itemSlideRight(0)">›</div> -->
         <button class="item-slide-left" onclick="itemSlideLeft(0)" type="button">‹</button>
         <button class="item-slide-right" onclick="itemSlideRight(0)" type="button">›</button>
         <h2 class="item-slide-name">Top Offers</h2>
@@ -539,6 +476,11 @@
         </div>
     </footer>
     
+    <button class="cart" type="button">
+        <p class="cart-text">View Cart (1)</p>
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+    </button>
+
     <script src="script.js"></script>
 </body>
 </html>
